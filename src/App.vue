@@ -15,22 +15,18 @@
           Drink Master
         </q-toolbar-title>
       </q-toolbar>
-
       <q-scroll-area slot="left" style="width: 100%; height: 100%">
-        <q-list-header>Type of Drinks</q-list-header>
-        <q-side-link item to="/showcase/layout/play-with-layout">
-          <q-item-side icon="account circle" />
-          <q-item-main label="Play with Layout" />
+        <q-list-header>Chose a Type</q-list-header>
+        <q-side-link item to="/drinklist/Alcoholic">
+          <q-item-main label="Alcoholic" />
         </q-side-link>
         <q-item-separator />
-        <q-side-link item to="/showcase/layout/play-with-layout">
-          <q-item-side icon="account circle" />
-          <q-item-main label="Play with Layout" />
+        <q-side-link item to="/drinklist/Non_Alcoholic">
+          <q-item-main label="Non Alcoholic" />
         </q-side-link>
         <q-item-separator />
-        <q-side-link item to="/showcase/layout/play-with-layout">
-          <q-item-side icon="account circle" />
-          <q-item-main label="Play with Layout" />
+        <q-side-link item to="/drinkdetails/random">
+          <q-item-main label="Ramdon" />
         </q-side-link>
       </q-scroll-area>      
       <router-view />
