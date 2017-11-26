@@ -25,7 +25,7 @@
           <q-item-main label="Non Alcoholic" />
         </q-side-link>
         <q-item-separator />
-        <q-side-link item to="/drinkdetails/random">
+        <q-side-link item to="/randomdrink">
           <q-item-main label="Ramdon" />
         </q-side-link>
       </q-scroll-area>      

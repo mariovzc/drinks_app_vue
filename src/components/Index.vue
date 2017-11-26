@@ -3,21 +3,21 @@
     <h3>Chose a Drink Type</h3>
     <div class="btn-list">
       <div class="btn-container">
-        <router-link :to="{path: 'drinklist/Alcoholic'}">
+        <router-link :to="{path: '/drinklist/Alcoholic'}">
           <q-btn class="bg-primary">
             Alcoholic
           </q-btn>
         </router-link>
       </div>
       <div class="btn-container">
-        <router-link :to="{path: 'drinklist/Non_Alcoholic'}">
+        <router-link :to="{path: '/drinklist/Non_Alcoholic'}">
           <q-btn  class="bg-secondary">
             Non Alcoholic
           </q-btn>
         </router-link>
       </div>
       <div class="btn-container">
-        <router-link :to="{path: 'drinkdetails/random'}">
+        <router-link :to="{path: '/randomdrink'}">
           <q-btn class="bg-tertiary">
             Random
           </q-btn>
