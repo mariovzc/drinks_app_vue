@@ -5,31 +5,18 @@
       {{title}}
       </q-toolbar-title>
     </q-toolbar>
-    <div class="layout text-center">
-      <h3>Chose a Drink Type</h3>
-      <div class="btn-list">
-        <div class="btn-container">
-          <router-link :to="{path: '/drinklist/Alcoholic'}">
-            <q-btn class="bg-primary">
-              Alcoholic
-            </q-btn>
-          </router-link>
-        </div>
-        <div class="btn-container">
-          <router-link :to="{path: '/drinklist/Non_Alcoholic'}">
-            <q-btn  class="bg-secondary">
-              Non Alcoholic
-            </q-btn>
-          </router-link>
-        </div>
-        <div class="btn-container">
-          <router-link :to="{path: '/randomdrink'}">
-            <q-btn class="bg-tertiary">
-              Random
-            </q-btn>
-          </router-link>
-        </div>
-      </div>
+    <div class="layout">
+      <q-list no-border>
+
+        <drinks-types 
+          v-for="(type, index) in types"
+          :key="index"
+          :type="type.name"
+          :separator="true"
+          :url="type.url"
+        >
+        </drinks-types>
+      </q-list>
     </div>    
   </div>
 </template>
@@ -38,35 +25,36 @@
 import {
   QToolbar,
   QToolbarTitle,
-  QBtn
+  QList
 } from 'quasar'
+import DrinksTypes from './DrinksTypes.vue'
 
 export default {
   name: 'index',
   data () {
     return {
-      title: 'Drink Master'
+      title: 'Drink Master',
+      types: [
+        {
+          name: 'Alcoholic',
+          url: 'http://www.thecocktaildb.com/api/json/v1/1/list.php?a=list'
+        },
+        {
+          name: 'Category',
+          url: 'http://www.thecocktaildb.com/api/json/v1/1/list.php?c=list'
+        },
+        {
+          name: 'Glass',
+          url: 'http://www.thecocktaildb.com/api/json/v1/1/list.php?g=list'
+        }
+      ]
     }
   },
   components: {
-    QBtn,
     QToolbar,
-    QToolbarTitle
+    QToolbarTitle,
+    QList,
+    DrinksTypes
   }
 }
 </script>
-
-<style scoped>
-  .layout{
-    margin-top: 50px;
-  }
-  .btn-list{
-    margin-top: 50px;
-  }
-  .btn-container{
-    margin: 20px;
-  }
-  .btn-container button{
-    color: #fff;
-  }
-</style>
