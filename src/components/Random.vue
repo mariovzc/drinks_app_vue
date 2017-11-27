@@ -1,9 +1,11 @@
 <template>
   <div>
-    {{drink}}
+    <DetailedView 
+    :drink="drink"/>
   </div>
 </template>
 <script>
+import DetailedView from './DetailedView.vue'
 export default {
   data () {
     return {
@@ -18,11 +20,14 @@ export default {
         method: 'GET'
       })
         .then(response => response.json())
-        .then(json => (this.drink = json.drinks))
+        .then(json => (this.drink = json.drinks[0]))
     }
   },
   created () {
     this.fetchItems()
+  },
+  components: {
+    DetailedView
   }
 }
 </script>
