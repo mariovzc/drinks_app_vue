@@ -1,19 +1,12 @@
 <template>
   <div>
     <nav-bar :title="`${titelize()} Drink's`"></nav-bar>
-    <div class=" justify-center">
-      <q-list multiline separator link>
-        <q-item 
-          v-for="(item, index) in items" 
-          v-bind:key="index"
-          :to="`/detaileddrink/${item.idDrink}`"
-        >
-          <q-item-side :image="item.strDrinkThumb" />
-          <q-item-main>
-            <q-item-tile label>{{item.strDrink}}</q-item-tile>
-          </q-item-main>
-        </q-item>
-      </q-list>
+      <card-view
+        v-for="(drink, index) in drinks"
+        v-bind:key="index"
+        :drink="drink"
+      >
+      </card-view>
     </div>
   </div>
 </template>
@@ -28,13 +21,14 @@ import {
   QItemTile
 } from 'quasar'
 
+import CardView from './CardView.vue'
 import navBar from './NavigationBar.vue'
 
 export default {
   data () {
     return {
       type: this.$route.params.type,
-      items: []
+      drinks: []
     }
   },
   watch: {
@@ -48,7 +42,7 @@ export default {
         method: 'GET'
       })
         .then(response => response.json())
-        .then(json => (this.items = json.drinks))
+        .then(json => (this.drinks = json.drinks))
     },
     titelize () {
       return this.type.replace('_', ' ')
@@ -65,12 +59,13 @@ export default {
     QItemSide,
     QItemMain,
     QItemTile,
-    navBar
+    navBar,
+    CardView
   }
 }
 </script>
 <style scoped> 
-.q-list{
-  border: none;
+body{
+  background-color: rgba(0,0,0,0.47)
 }
 </style>
