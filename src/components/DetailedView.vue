@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="text-center">
-      <h5>{{drink.strDrink}}</h5>
-    </div>
+    <nav-bar :title="drink.strDrink"></nav-bar>
     <div>
       <img :src="drink.strDrinkThumb" :alt="drink.strDrink" class="responsive">
     </div>
@@ -109,6 +107,7 @@ import {
   QItemTile,
   QItemMain
 } from 'quasar'
+import navBar from './NavigationBar.vue'
 export default {
   props: ['drink'],
   name: 'DetailedView',
@@ -120,7 +119,8 @@ export default {
     QItem,
     QListHeader,
     QItemTile,
-    QItemMain
+    QItemMain,
+    navBar
   },
   methods: {
     display (value) {

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <nav-bar :title="title"></nav-bar>
     <DetailedView 
     :drink="drink"/>
     <q-btn
@@ -23,8 +22,6 @@ import {
 } from 'quasar'
 
 import DetailedView from './DetailedView.vue'
-
-import navBar from './NavigationBar.vue'
 
 export default {
   data () {
@@ -53,8 +50,7 @@ export default {
   components: {
     DetailedView,
     QBtn,
-    QIcon,
-    navBar
+    QIcon
   }
 }
 </script>
