@@ -13,7 +13,7 @@
           :key="index"
           :type="type.name"
           :separator="true"
-          :url="type.url"
+          :sufix="type.type"
         >
         </drinks-types>
       </q-list>
@@ -37,15 +37,15 @@ export default {
       types: [
         {
           name: 'Alcoholic',
-          url: 'http://www.thecocktaildb.com/api/json/v1/1/list.php?a=list'
+          type: 'a='
         },
         {
           name: 'Category',
-          url: 'http://www.thecocktaildb.com/api/json/v1/1/list.php?c=list'
+          type: 'c='
         },
         {
           name: 'Glass',
-          url: 'http://www.thecocktaildb.com/api/json/v1/1/list.php?g=list'
+          type: 'g='
         }
       ]
     }

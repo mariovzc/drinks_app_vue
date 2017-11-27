@@ -26,7 +26,14 @@ export default new VueRouter({
 
   routes: [
     { path: '/', component: load('Index') },
-    { path: '/drinklist/:type', component: load('DrinkList') },
+    {
+      path: '/drinklist',
+      component: load('DrinkList'),
+      props: (route) => ({
+        type: route.query.type,
+        sufix: route.query.sufix
+      })
+    },
     { path: '/randomdrink', component: load('Random') },
     { path: '/detaileddrink/:id', component: load('DetailedDrink') },
     // Always leave this last one

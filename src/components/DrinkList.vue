@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav-bar :title="`${titelize()} Drink's`"></nav-bar>
+    <nav-bar :title="`${this.type} Drink's`"></nav-bar>
       <card-view
         v-for="(drink, index) in drinks"
         v-bind:key="index"
@@ -33,7 +33,8 @@ import NavBar from './NavigationBar.vue'
 export default {
   data () {
     return {
-      type: this.$route.params.type,
+      type: this.$route.query.type,
+      sufix: this.$route.query.sufix,
       drinks: []
     }
   },
@@ -43,8 +44,9 @@ export default {
   methods: {
     fetchItems () {
       this.items = []
-      this.type = this.$route.params.type
-      fetch(`http://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${this.type}`, {
+      this.type = this.$route.query.type
+      this.sufix = this.$route.query.sufix
+      fetch(`http://www.thecocktaildb.com/api/json/v1/1/filter.php?${this.sufix}${this.type}`, {
         method: 'GET'
       })
         .then(response => response.json())
