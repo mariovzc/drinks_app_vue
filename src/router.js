@@ -28,6 +28,7 @@ export default new VueRouter({
     { path: '/', component: load('Index') },
     { path: '/drinklist/:type', component: load('DrinkList') },
     { path: '/randomdrink', component: load('Random') },
+    { path: '/detaileddrink/:id', component: load('DetailedDrink') },
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]

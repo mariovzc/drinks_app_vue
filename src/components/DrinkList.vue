@@ -4,7 +4,7 @@
       <q-item 
         v-for="(item, index) in items" 
         v-bind:key="index"
-        @click="goToDetails(items.idDrink)"
+        :to="`/detaileddrink/${item.idDrink}`"
       >
         <q-item-side :image="item.strDrinkThumb" />
         <q-item-main>
@@ -44,9 +44,6 @@ export default {
       })
         .then(response => response.json())
         .then(json => (this.items = json.drinks))
-    },
-    goToDetails (id) {
-      console.log(id)
     }
   },
   created () {
