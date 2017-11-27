@@ -23,7 +23,8 @@ import {
   QBtn,
   QIcon,
   BackToTop,
-  Ripple
+  Ripple,
+  Loading
 } from 'quasar'
 
 import CardView from './CardView.vue'
@@ -54,6 +55,7 @@ export default {
     }
   },
   created () {
+    Loading.show()
     this.fetchItems()
   },
   components: {
@@ -65,6 +67,9 @@ export default {
   directives: {
     BackToTop,
     Ripple
+  },
+  updated () {
+    Loading.hide()
   }
 }
 </script>
