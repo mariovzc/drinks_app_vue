@@ -1,13 +1,16 @@
 <template>
   <div>
     <q-toolbar slot="header">
-      <q-btn 
-        flat 
-        @click="goBack"
-      >
-        <q-icon v-if="canGoBack" name="back" />
-      </q-btn>
-    <q-toolbar-title to="/" class="text-center" >
+      <q-btn
+          flat
+          v-if="canGoBack"
+          color="primary"
+          @click="goBack"
+          icon="keyboard_arrow_left"
+          class="custon-btn"
+        >
+        </q-btn>
+    <q-toolbar-title to="/" >
     {{title}}
     </q-toolbar-title>
     </q-toolbar>
@@ -40,3 +43,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+button{
+  color: white !important;
+}
+</style>
