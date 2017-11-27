@@ -1,17 +1,20 @@
 <template>
-  <div class=" justify-center">
-    <q-list multiline separator link>
-      <q-item 
-        v-for="(item, index) in items" 
-        v-bind:key="index"
-        :to="`/detaileddrink/${item.idDrink}`"
-      >
-        <q-item-side :image="item.strDrinkThumb" />
-        <q-item-main>
-          <q-item-tile label>{{item.strDrink}}</q-item-tile>
-        </q-item-main>
-      </q-item>
-    </q-list>
+  <div>
+    <nav-bar :title="`${titelize()} Drink's`"></nav-bar>
+    <div class=" justify-center">
+      <q-list multiline separator link>
+        <q-item 
+          v-for="(item, index) in items" 
+          v-bind:key="index"
+          :to="`/detaileddrink/${item.idDrink}`"
+        >
+          <q-item-side :image="item.strDrinkThumb" />
+          <q-item-main>
+            <q-item-tile label>{{item.strDrink}}</q-item-tile>
+          </q-item-main>
+        </q-item>
+      </q-list>
+    </div>
   </div>
 </template>
 <script>
@@ -24,6 +27,8 @@ import {
   QItemMain,
   QItemTile
 } from 'quasar'
+
+import navBar from './NavigationBar.vue'
 
 export default {
   data () {
@@ -44,6 +49,9 @@ export default {
       })
         .then(response => response.json())
         .then(json => (this.items = json.drinks))
+    },
+    titelize () {
+      return this.type.replace('_', ' ')
     }
   },
   created () {
@@ -56,7 +64,8 @@ export default {
     QItemSeparator,
     QItemSide,
     QItemMain,
-    QItemTile
+    QItemTile,
+    navBar
   }
 }
 </script>
