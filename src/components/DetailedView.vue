@@ -105,7 +105,8 @@ import {
   QItem,
   QListHeader,
   QItemTile,
-  QItemMain
+  QItemMain,
+  Loading
 } from 'quasar'
 import navBar from './NavigationBar.vue'
 export default {
@@ -120,13 +121,20 @@ export default {
     QListHeader,
     QItemTile,
     QItemMain,
-    navBar
+    navBar,
+    Loading
   },
   methods: {
     display (value) {
       if (value === '' || value === null) return false
       return true
     }
+  },
+  beforeCreate () {
+    Loading.show()
+  },
+  updated () {
+    setTimeout(() => { Loading.hide() }, 1000)
   }
 }
 // strDrink = name , strCategory strAlcoholic, strGlass, strInstructions, strDrinkThumb

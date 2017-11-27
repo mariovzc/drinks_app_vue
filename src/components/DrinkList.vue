@@ -54,8 +54,10 @@ export default {
       return this.type.replace('_', ' ')
     }
   },
-  created () {
+  beforeCreate () {
     Loading.show()
+  },
+  created () {
     this.fetchItems()
   },
   components: {
