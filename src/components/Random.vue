@@ -1,25 +1,36 @@
 <template>
   <div>
+    <nav-bar :title="title"></nav-bar>
     <DetailedView 
     :drink="drink"/>
     <q-btn
       round
+      small
+      push
       color="primary"
       @click="newDrink"
       class="fixed"
       style="right: 18px; bottom: 18px"
       >
-        <q-icon name="mail" />
+        <q-icon name="cached" />
       </q-btn>
   </div>
 </template>
 <script>
-import {QBtn, QIcon} from 'quasar'
+import {
+  QBtn,
+  QIcon
+} from 'quasar'
+
 import DetailedView from './DetailedView.vue'
+
+import navBar from './NavigationBar.vue'
+
 export default {
   data () {
     return {
-      drink: {}
+      drink: {},
+      title: 'Random Drink'
     }
   },
   methods: {
@@ -42,7 +53,8 @@ export default {
   components: {
     DetailedView,
     QBtn,
-    QIcon
+    QIcon,
+    navBar
   }
 }
 </script>
