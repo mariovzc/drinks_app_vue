@@ -57,7 +57,13 @@ export default {
         .then(json => (this.items = json.drinks))
     },
     goTo (name, sufix) {
-      this.$router.push({path: '/drinklist/' ,query: {type: name, sufix: sufix}})
+      this.$router.push({
+        path: '/drinklist/' ,
+        query: {
+          type: name, 
+          sufix: sufix
+        }
+      })
     },
     valid (value) {
       if (value === '' || value === null) return false
