@@ -16,7 +16,7 @@
       >
         <q-item-tile 
           label
-          @click="goTo(value)"
+          @click="goTo(value, sufix)"
         >{{value | capitalize}}</q-item-tile>
       </q-item-main>
     </q-item>
@@ -32,10 +32,11 @@ import {
   QItem
 } from 'quasar'
 export default {
-  props: ['type', 'url'],
+  props: ['type', 'sufix'],
   data () {
     return {
-      items: []
+      items: [],
+      url: 'http://www.thecocktaildb.com/api/json/v1/1/list.php?'
     }
   },
   components: {
@@ -49,14 +50,14 @@ export default {
   methods: {
     fetchData () {
       this.items = []
-      fetch(this.url, {
+      fetch(this.url + this.sufix + 'list', {
         method: 'GET'
       })
         .then(response => response.json())
         .then(json => (this.items = json.drinks))
     },
-    goTo (to) {
-      console.log(to)
+    goTo (name, sufix) {
+      this.$router.push({path: '/drinklist/' ,query: {type: name, sufix: sufix}})
     },
     valid (value) {
       if (value === '' || value === null) return false
