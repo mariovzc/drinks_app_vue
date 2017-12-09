@@ -28,18 +28,12 @@ import {
   QBtn,
   QIcon
 } from 'quasar'
-import layoutStore from './layout-store'
 
 export default {
   props: ['title', 'displayMenu', 'canGoBack'],
   methods: {
     goBack () {
       window.history.go(-1)
-    }
-  },
-  data () {
-    return {
-      layoutStore
     }
   },
   components: {
