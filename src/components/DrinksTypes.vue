@@ -58,9 +58,9 @@ export default {
     },
     goTo (name, sufix) {
       this.$router.push({
-        path: '/drinklist/' ,
+        path: '/drinklist/',
         query: {
-          type: name, 
+          type: name,
           sufix: sufix
         }
       })
