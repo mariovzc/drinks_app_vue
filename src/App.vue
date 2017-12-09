@@ -24,4 +24,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.layout-page{
+  background-color: #FBFAF9;
+}
+</style>

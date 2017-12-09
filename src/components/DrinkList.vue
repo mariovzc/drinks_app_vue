@@ -5,18 +5,19 @@
       :canGoBack = "false"
       :display-menu="true"
     ></nav-bar>
-    <card-view
+    <div class="row">
+      <card-view
       v-for="(drink, index) in drinks"
       v-bind:key="index"
       :drink="drink"
-    >
-    </card-view>
+      >
+      </card-view>
+    </div>
     <q-btn
       v-back-to-top.animate="{offset: 500, duration: 200}"
       round
-      color="primary"
-      class="fixed-bottom-right animate-pop"
-      style="margin: 0 15px 15px 0"
+      class="fixed-bottom-right animate-pop back-top-btn"
+      style="margin: 0 15px 15px 0"      
     >
       <q-icon name="keyboard_arrow_up" />
     </q-btn>
@@ -28,7 +29,19 @@ import {
   QIcon,
   BackToTop,
   Ripple,
-  Loading
+  Loading,
+  QCard,
+  QCardTitle,
+  QCardMedia,
+  QCardActions,
+  QCardSeparator,
+  QCardMain,
+  QList,
+  QItem,
+  QItemMain,
+  QItemSide,
+  QItemTile,
+  QCollapsible
 } from 'quasar'
 
 import CardView from './CardView.vue'
@@ -70,7 +83,19 @@ export default {
     NavBar,
     CardView,
     QBtn,
-    QIcon
+    QIcon,
+    QCard,
+    QCardTitle,
+    QCardMedia,
+    QCardActions,
+    QCardSeparator,
+    QCardMain,
+    QList,
+    QItem,
+    QItemMain,
+    QItemSide,
+    QItemTile,
+    QCollapsible
   },
   directives: {
     BackToTop,
@@ -84,5 +109,9 @@ export default {
 <style scoped> 
 body{
   background-color: rgba(0,0,0,0.47)
+}
+.back-top-btn{
+  background-color: #5FAF50;
+  color: #fff;
 }
 </style>
