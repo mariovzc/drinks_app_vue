@@ -11,13 +11,14 @@
         </q-btn>
         <q-btn 
           flat
-          v-if="displayMenu">
+          v-if="displayMenu"
+        >
           <img src="../assets/img/menu-icon.svg" class="menu-icon">
         </q-btn>
     <q-toolbar-title to="/" class="nav-title" >
     {{title}}
     </q-toolbar-title>
-    </q-toolbar>
+    </q-toolbar>    
   </div>
 </template>
 <script>
@@ -27,11 +28,18 @@ import {
   QBtn,
   QIcon
 } from 'quasar'
+import layoutStore from './layout-store'
+
 export default {
   props: ['title', 'displayMenu', 'canGoBack'],
   methods: {
     goBack () {
       window.history.go(-1)
+    }
+  },
+  data () {
+    return {
+      layoutStore
     }
   },
   components: {

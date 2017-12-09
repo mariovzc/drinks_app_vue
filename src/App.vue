@@ -3,9 +3,6 @@
   <div id="q-app">
     <q-layout
       ref="layout"
-      :view="layoutStore.view"
-      :left-breakpoint="layoutStore.leftBreakpoint"
-      :reveal="layoutStore.reveal"
     >      
       <router-view />
     </q-layout>
@@ -20,15 +17,9 @@ import {
   QLayout
 } from 'quasar'
 
-import layoutStore from './layout-store'
 export default {
   components: {
     QLayout
-  },
-  data () {
-    return {
-      layoutStore
-    }
   }
 }
 </script>
