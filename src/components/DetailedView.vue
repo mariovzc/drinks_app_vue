@@ -1,6 +1,10 @@
 <template>
   <div>
-    <nav-bar :title="drink.strDrink"></nav-bar>
+    <nav-bar 
+      :title="drink.strDrink"
+      :canGoBack = "true"
+      :display-menu="false"
+    ></nav-bar>
     <div>
       <img :src="drink.strDrinkThumb" :alt="drink.strDrink" class="responsive">
     </div>

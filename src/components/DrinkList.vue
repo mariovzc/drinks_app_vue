@@ -1,11 +1,15 @@
 <template>
   <div>
-    <nav-bar :title="`${this.type} Drink's`"></nav-bar>
-      <card-view
-        v-for="(drink, index) in drinks"
-        v-bind:key="index"
-        :drink="drink"
-      >
+    <nav-bar 
+      :title="`${this.type} Drink's`"
+      :canGoBack = "false"
+      :display-menu="true"
+    ></nav-bar>
+    <card-view
+      v-for="(drink, index) in drinks"
+      v-bind:key="index"
+      :drink="drink"
+    >
     </card-view>
     <q-btn
       v-back-to-top.animate="{offset: 500, duration: 200}"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-toolbar slot="header">
+    <q-toolbar slot="header" class="toolbar">
       <q-toolbar-title to="/" class="text-center" >
       {{title}}
       </q-toolbar-title>
@@ -58,3 +58,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.toolbar{
+  background-color: #5FAF50;
+}
+</style>
