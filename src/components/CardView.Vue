@@ -1,5 +1,5 @@
 <template>
-  <div class="col-6 col-md-6 col-lg-3 ctn" @click="goTo(drink.idDrink)">
+  <div class="col-6 col-md-6 col-lg-3 ctn">
     <q-card inline>
       <q-card-media>
         <img :src="drink.strDrinkThumb"> 
