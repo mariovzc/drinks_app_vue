@@ -107,9 +107,6 @@ export default {
 }
 </script>
 <style scoped> 
-body{
-  background-color: rgba(0,0,0,0.47)
-}
 .back-top-btn{
   background-color: #5FAF50;
   color: #fff;

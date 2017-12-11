@@ -149,9 +149,6 @@ table.q-table thead{
 .table-item{
   display: block;
 }
-.layout-page{
-  background-color: #767F60;
-}
 .item-title {
   font-weight: bold;
   font-size: 20px;
