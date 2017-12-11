@@ -33,7 +33,7 @@ export default {
   name: 'index',
   data () {
     return {
-      title: 'Drink Master',
+      title: `Drink's App`,
       types: [
         {
           name: 'Alcoholic',
@@ -42,11 +42,11 @@ export default {
         {
           name: 'Category',
           type: 'c='
-        },
-        {
+        }
+        /* {
           name: 'Glass',
           type: 'g='
-        }
+        } */
       ]
     }
   },
@@ -60,6 +60,10 @@ export default {
 </script>
 <style scoped>
 .toolbar{
+  border-bottom: 1px inset;
   background-color: #5FAF50;
+}
+.layout {
+  background-color: #fff
 }
 </style>

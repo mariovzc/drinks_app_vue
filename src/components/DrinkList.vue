@@ -2,8 +2,8 @@
   <div>
     <nav-bar 
       :title="`${this.type} Drink's`"
-      :canGoBack = "false"
-      :display-menu="true"
+      :canGoBack = "true"
+      :display-menu="false"
     ></nav-bar>
     <div class="row">
       <card-view

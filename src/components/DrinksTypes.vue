@@ -3,22 +3,26 @@
     <q-list-header><strong>{{type}}</strong></q-list-header>
     <q-item 
       link 
-      inset-separator
+      separator
       v-for="(item, index) in items"
       :key="index"
     >
-      <q-item-side>
-      </q-item-side>
-      <q-item-main 
+      <div
         v-for="(value, key, index) in item" 
         :key="index"
         v-if="valid(value)"
+        class="cnt"
       >
-        <q-item-tile 
-          label
-          @click="goTo(value, sufix)"
-        >{{value | capitalize}}</q-item-tile>
-      </q-item-main>
+        <q-item-side></q-item-side>
+        <q-item-main         
+        >
+          <q-item-tile 
+            label
+            @click="goTo(value, sufix)"
+          >{{value | capitalize}}</q-item-tile>
+        </q-item-main>
+        <q-item-side right icon="keyboard_arrow_right"  />
+      </div>
     </q-item>
   </div>
 </template>
@@ -54,7 +58,13 @@ export default {
         method: 'GET'
       })
         .then(response => response.json())
-        .then(json => (this.items = json.drinks))
+        .then(json => {
+          this.items = json.drinks
+
+          if (this.type === 'Alcoholic') {
+            this.items.splice(-1, 1)
+          }
+        })
     },
     goTo (name, sufix) {
       this.$router.push({
@@ -88,6 +98,12 @@ export default {
 }
 .q-item {
   min-height: 70px;
+}
+.cnt{
+  width: 100%;
+  display: inline-flex;
+  display: -webkit-inline-flex;
+  height: 100%;
 }
 </style>
 
